@@ -46,6 +46,6 @@ tasks.named('test') {
 	useJUnitPlatform()
 }
 
-tasks.getByName<Jar>("jar") {
+tasks.named('jar') {
 	enabled = false
 }
