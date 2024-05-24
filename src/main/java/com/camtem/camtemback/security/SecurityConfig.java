@@ -49,7 +49,7 @@ public class SecurityConfig {
 
     private CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration corsConfiguration = new CorsConfiguration();
-        corsConfiguration.setAllowedOrigins(Arrays.asList("http://qusdml123.site","http://qusdml123.site/productlist","https://qusdml123.site","https://qusdml123.site/productlist")); // S3 엔드포인트 설정
+        corsConfiguration.setAllowedOrigins(Arrays.asList("http://qusdml123.site","http://qusdml123.site/productlist","https://qusdml123.site","https://qusdml123.site/productlist","http://qusdml123.site.s3-website.ap-northeast-2.amazonaws.com")); // S3 엔드포인트 설정
         corsConfiguration.setAllowedMethods(Arrays.asList("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         corsConfiguration.setAllowedHeaders(Arrays.asList("*"));
         corsConfiguration.setAllowCredentials(true);
