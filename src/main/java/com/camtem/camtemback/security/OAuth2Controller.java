@@ -36,8 +36,6 @@ public class OAuth2Controller {
 
     @GetMapping("/api/oauth/kakao")
     public ResponseEntity<?> kakaoLogin(@RequestParam String code){
-        System.out.println("code=" + code); //프론트에서 받아온 인가코드
-
         UriComponentsBuilder builder = UriComponentsBuilder.fromHttpUrl(accessTokenUrl)
                 .queryParam("grant_type", grantType)
                 .queryParam("client_id", clientId)
@@ -47,15 +45,10 @@ public class OAuth2Controller {
 
         String accessToken = oAuthService.getAccessToken(builder.toUriString());
 
-        System.out.println("엑세스토큰="+accessToken);
-
         Map<String,Object> userInfo = oAuthService.getKakaoUserInfo(accessToken);
 
         //받아온 유저정보를 서비스로 넘겨서 가입이 되어있는지 아닌지 처리
         Map<String,Object> kakaoLoginResponse = oAuthService.handleKakaoLoginResponse(userInfo);
-
-//        System.out.println("만들어진 jwt 토큰"+jwt);
-        System.out.println(kakaoLoginResponse.get("token"));
 
         return ResponseEntity.ok(kakaoLoginResponse);
     }
