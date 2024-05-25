@@ -31,7 +31,7 @@ public class WeatherController {
 
         Weather weatherList = weatherService.getWeather(request.getRegion(), request.getDates(), 2);
 
-        System.out.println("이거진짜돼??");
+        
         return ResponseEntity.ok(weatherList);
     }
 
